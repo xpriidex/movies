@@ -1,0 +1,28 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // dagger
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation "com.google.dagger:dagger:$dagger_version"
+
+    //Dagger android
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+
+    // Unit Testing
+    testImplementation "junit:junit:$testing_junit_version"
+    testImplementation "io.mockk:mockk:$testing_mockK_version"
+    testImplementation "com.google.truth:truth:$testing_truth_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$testing_coroutines_version"
+
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

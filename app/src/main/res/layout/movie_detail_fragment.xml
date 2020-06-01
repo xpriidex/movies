@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.xpridex.movies.presentation.moviedetail.viewmodel.MovieDetailViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".presentation.moviedetail.view.MovieDetailFragment">
+
+            <ImageView
+                android:id="@+id/ivMovie"
+                android:layout_width="0dp"
+                android:layout_height="500dp"
+                app:imageUrl="@{viewmodel.movieLiveData.posterPath}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tvOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{viewmodel.movieLiveData.overview}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivMovie" />
+
+            <TextView
+                android:id="@+id/tvReleaseDateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/fecha_lanzamiento"
+                app:layout_constraintStart_toStartOf="@+id/tvOverview"
+                app:layout_constraintTop_toBottomOf="@+id/tvOverview" />
+
+            <TextView
+                android:id="@+id/tvReleaseDateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="7dp"
+                android:text="@{viewmodel.movieLiveData.releaseDate}"
+                app:layout_constraintEnd_toEndOf="@+id/tvOverview"
+                app:layout_constraintTop_toTopOf="@+id/tvReleaseDateLabel" />
+
+            <TextView
+                android:id="@+id/tvOriginalLanguageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/lenguaje_original"
+                app:layout_constraintStart_toStartOf="@+id/tvOverview"
+                app:layout_constraintTop_toBottomOf="@+id/tvReleaseDateLabel" />
+
+            <TextView
+                android:id="@+id/tvOriginalLanguageValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.movieLiveData.originalLanguage}"
+                app:layout_constraintEnd_toEndOf="@+id/tvReleaseDateValue"
+                app:layout_constraintTop_toTopOf="@+id/tvOriginalLanguageLabel" />
+
+            <TextView
+                android:id="@+id/tvVoteCountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/votos"
+                app:layout_constraintStart_toStartOf="@+id/tvOverview"
+                app:layout_constraintTop_toBottomOf="@+id/tvOriginalLanguageLabel" />
+
+            <TextView
+                android:id="@+id/tvVoteCountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.movieLiveData.voteCount}"
+                app:layout_constraintEnd_toEndOf="@+id/tvOriginalLanguageValue"
+                app:layout_constraintTop_toTopOf="@+id/tvVoteCountLabel" />
+
+            <TextView
+                android:id="@+id/tvVoteAverageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/promedio_de_votos"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvVoteCountLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvVoteCountLabel" />
+
+            <TextView
+                android:id="@+id/tvVoteAverageValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.movieLiveData.voteAverage}"
+                app:layout_constraintEnd_toEndOf="@+id/tvVoteCountValue"
+                app:layout_constraintTop_toTopOf="@+id/tvVoteAverageLabel" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

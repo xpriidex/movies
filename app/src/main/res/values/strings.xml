@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Tbk Peliculas</string>
+    <string name="movies_title">Peliculas</string>
+    <string name="fecha_lanzamiento">Fecha lanzamiento</string>
+    <string name="lenguaje_original">Lenguaje original</string>
+    <string name="votos">Votos</string>
+    <string name="promedio_de_votos">Promedio de votos</string>
+</resources>
